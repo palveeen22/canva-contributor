@@ -3,8 +3,8 @@ import { createSlice } from "@reduxjs/toolkit";
 const textboxSlice = createSlice({
   name: "textbox",
   initialState: {
-    height: 400,
-    width: 400,
+    height: 900,
+    width: 1300,
     B_color: "white",
     pencolor: "black",
     stroke: 2,

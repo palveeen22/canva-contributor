@@ -7,19 +7,17 @@ const Canvas = () => {
   const Bcolor = useSelector((state) => state.B_color);
   const setCanvasRef = useOnDraw();
   return (
-    <>
-      <canvas
-        id="canva1"
-        height={height}
-        width={width}
-        style={{
-          border: "2px solid white",
-          backgroundColor: Bcolor,
-          marginLeft: 200,
-        }}
-        ref={setCanvasRef}
-      />
-    </>
+    <canvas
+      id="canva1"
+      height={height}
+      width={width}
+      style={{
+        border: "2px solid white",
+        backgroundColor: Bcolor,
+        marginLeft: 200,
+      }}
+      ref={setCanvasRef}
+    />
   );
 };
 
