@@ -3,6 +3,11 @@ const errorHandler = (error, req, res, next) => {
   let code = 500;
   let message = "INTERNAL SERVER ERROR";
 
+  if (err.name === "LoginError") {
+    code = 401;
+    message = "Email and password are required";
+  }
+
   if (error.name === "SequelizeDatabaseError") {
     code = 400;
     message = "Invalid input";
@@ -18,6 +23,20 @@ const errorHandler = (error, req, res, next) => {
   if (error.name == "Unauthorized") {
     code = 401;
     message = "Invalid token";
+  }
+  if (err.name === "EmailFormat") {
+    code = 401;
+    message = "Invalid email format";
+  }
+
+  if (err.name === "EmptyEmail") {
+    code = 401;
+    message = "Email is required";
+  }
+
+  if (err.name === "EmptyPassword") {
+    code = 401;
+    message = "Password is required";
   }
 
   res.status(code).json({ message });
