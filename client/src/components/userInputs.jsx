@@ -10,6 +10,7 @@ const Toolbox = () => {
   const initalStroke = useSelector((state) => state.stroke);
   const current = useSelector((state) => state.canvaVal);
   const dispatch = useDispatch();
+
   const changeHeight = (val) => {
     dispatch(actions.setHeight(val));
   };
@@ -214,7 +215,10 @@ const Toolbox = () => {
       </div>
 
       {/* Download */}
-      <button className="bg-white w-[60%] mx-auto p-3 rounded-lg hover:bg-black">
+      <button
+        className="bg-white w-[60%] mx-auto p-3 rounded-lg hover:bg-black"
+        onClick={() => download(current)}
+      >
         <div className="flex justify-center gap-4">
           <h3 className="text-sm text-[#595959] font-normal">
             Download Result
