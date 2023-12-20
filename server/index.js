@@ -1,17 +1,19 @@
 const express = require("express");
 const app = express();
-const router = require("./routers");
+const router = require("./routers/router");
 const errorHandler = require("./middlewares/errorHandler");
 const http = require("http");
 const server = http.createServer(app);
 const cors = require("cors");
 const authentication = require("./middlewares/authentication");
+// const authentication = "user@example.com"; // Replace this with your actual authentication logic
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(cors());
 app.use(router);
-app.use(errorHandler);
+
+app.use(authentication);
 
 const { Server } = require("socket.io");
 const io = new Server(server, {
@@ -57,6 +59,8 @@ io.on("connection", (socket) => {
     delete activeUsers[socket.id];
   });
 });
+
+app.use(errorHandler);
 
 server.listen(3001, () => {
   console.log("server started");
