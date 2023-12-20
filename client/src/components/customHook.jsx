@@ -1,9 +1,12 @@
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { actions } from "../store/textboxStore";
 import io from "socket.io-client";
 
 const useOnDraw = () => {
+  const [email, setEmail] = useState(null);
+  console.log(email, "<===");
+
   const canvaRef = useRef(null);
   const dispatch = useDispatch();
   const mousePressed = useRef(false);
@@ -63,12 +66,19 @@ const useOnDraw = () => {
       ctx.current = canvaRef.current.getContext("2d");
       drawLine(data[0], data[1], data[2], data[3]);
     }
-    // ctx.current.lineTo(data[1].x,data[1].y);
-    // ctx.current.stroke();
+    ctx.current.lineTo(data[1].x, data[1].y);
+    ctx.current.stroke();
   });
-  // socket.on("onDown",(data)=>{
-  //     drawLine(data[0],data[1],data[2],data[3])
-  // })
+  socket.on("onDown", (data) => {
+    drawLine(data[0], data[1], data[2], data[3]);
+  });
+
+  useEffect(() => {
+    socket.on("loggedInEmail", (data) => {
+      const { email } = data;
+      setEmail(email);
+    });
+  }, []);
 
   function initMouseMoveListener() {
     const mouseMoveEventListener = (e) => {
