@@ -1,17 +1,13 @@
 import React from "react";
-import Toolbox from "../components/userinputs";
-import Canvas from "../components/canva";
+import Navbar from "../components/Navbar";
+import { Outlet } from "react-router-dom";
 
 const MainPage = () => {
   return (
-    <section>
-      <div className="toolbox1">
-        <Toolbox />
-      </div>
-      <div className="App">
-        <Canvas Bcolor="red" />
-      </div>
-    </section>
+    <>
+      <Navbar />
+      <Outlet />
+    </>
   );
 };
 
