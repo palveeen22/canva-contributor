@@ -29,8 +29,8 @@ const authentication = async (req, res, next) => {
     };
 
     next();
-  } catch (err) {
-    next(err);
+  } catch (error) {
+    console.log(error);
   }
 };
 
