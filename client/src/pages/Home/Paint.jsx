@@ -12,7 +12,15 @@ const Paint = () => {
             <p className="text-sm text-[#595959] font-normal">Who in room :</p>
             <div className="flex justify-start items-center">
               <p className="h-2.5 w-2.5 rounded-full bg-green-500 me-2"></p>
-              <p className="text-sm text-[#595959] font-normal">alcin</p>
+              <p className="text-sm text-[#595959] font-normal">
+                jhonny@mail.com
+              </p>
+            </div>
+            <div className="flex justify-start items-center">
+              <p className="h-2.5 w-2.5 rounded-full bg-green-500 me-2"></p>
+              <p className="text-sm text-[#595959] font-normal">
+                dzul@mail.com
+              </p>
             </div>
           </div>
         </div>
