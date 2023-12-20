@@ -1,34 +1,53 @@
 const { compareHash } = require("../helpers/bcrypt");
 const { signToken } = require("../helpers/jwt");
 const { User } = require("../models");
+const validator = require("validator");
 
 class Controller {
   static async login(req, res, next) {
     try {
       const { email, password } = req.body;
-      if (!email || !password) {
-        throw { name: "Invalid email/password" };
+
+      // Validasi untuk email and password are required
+      if (!email && !password) {
+        throw { name: "LoginError" };
+      }
+
+      // Validasi apakah email kosong atau tidak
+      if (!email) {
+        throw { name: "EmptyEmail" };
+      }
+      // Validasi email format dengan package validator
+      if (!validator.isEmail(email)) {
+        throw { name: "EmailFormat" };
+      }
+
+      // Validasi apakah password kosong atau tidak
+      if (!password) {
+        throw { name: "EmptyPassword" };
       }
 
       const user = await User.findOne({
-        where: { email },
+        where: { email: email },
       });
 
+      // Validasi apakah email/password salah
       if (!user) {
-        throw { name: "Invalid email/password" };
+        throw { name: "WrongEmailPassword" };
       }
 
-      const isValidPassword = compareHash(password, user.password);
-      if (!isValidPassword) {
-        throw { name: "Invalid email/password" };
+      if (!compareHash(password, user.password)) {
+        throw { name: "WrongEmailPassword" };
       }
 
-      const accessToken = signToken({
+      const payload = {
         id: user.id,
         email: user.email,
-      });
+      };
 
-      res.status(200).json({ access_token: accessToken });
+      const access_token = signToken(payload);
+
+      res.status(200).json({ access_token });
     } catch (error) {
       console.log(error);
       next(error);
