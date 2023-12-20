@@ -1,6 +1,13 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
+  const navigate = useNavigate();
+
+  const handleLogout = async () => {
+    localStorage.removeItem("access_token");
+    navigate("/login");
+  };
   return (
     <nav className="bg-[#d3d2cd] paddingXShorter paddingYShorter3">
       <div className="flex justify-between">
@@ -20,6 +27,7 @@ const Navbar = () => {
               />
             </div>
           </>
+          <p onClick={handleLogout}>keluar</p>
         </div>
       </div>
     </nav>
