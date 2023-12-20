@@ -11,7 +11,7 @@ const Canvas = () => {
       id="canva1"
       height={height}
       width={width}
-      style={{border:"2px solid white",backgroundColor:Bcolor,marginLeft:200}}
+      style={{ backgroundColor: Bcolor }}
       ref={setCanvasRef}
       className="bg-white rounded-xl"
     />
