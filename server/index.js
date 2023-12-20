@@ -26,8 +26,7 @@ io.on("connection", (socket) => {
   console.log(`socket id:${socket.id} has connected`);
 
   // Simulating user authentication
-  const email = authentication(); // Implement your actual authentication logic here
-
+  const email = authentication;
   // Store the user login information in the activeUsers object
   activeUsers[socket.id] = { email };
 
@@ -49,7 +48,6 @@ io.on("connection", (socket) => {
   socket.on("getEmail", () => {
     const { email } = activeUsers[socket.id];
     socket.emit("loggedInEmail", { email });
-    console.log(email, "xxixixi");
   });
 
   socket.on("disconnect", (reason) => {

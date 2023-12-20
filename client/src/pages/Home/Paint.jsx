@@ -8,6 +8,13 @@ const Paint = () => {
       <section className="w-full flex justify-between gap-4 bg-[#d3d2cd] paddingX paddingYShorter3 pb-10">
         <div className="w-[30%] gap-4 rounded-xl bg-[#e6e7e1] paddingXShorter paddingYShorter flex flex-col items-center">
           <Toolbox />
+          <div className="bg-white w-full rounded-lg p-4 flex flex-col gap-4">
+            <p className="text-sm text-[#595959] font-normal">Who in room :</p>
+            <div className="flex justify-start items-center">
+              <p className="h-2.5 w-2.5 rounded-full bg-green-500 me-2"></p>
+              <p className="text-sm text-[#595959] font-normal">alcin</p>
+            </div>
+          </div>
         </div>
         {/* canvas here */}
         <div className="w-[70%] rounded-xl bg-[#e6e7e1] paddingXShorter paddingYShorter">

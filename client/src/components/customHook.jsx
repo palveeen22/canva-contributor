@@ -5,7 +5,6 @@ import io from "socket.io-client";
 
 const useOnDraw = () => {
   const [email, setEmail] = useState(null);
-  console.log(email, "<===");
 
   const canvaRef = useRef(null);
   const dispatch = useDispatch();
