@@ -10,7 +10,7 @@ const authentication = async (req, res, next) => {
     }
 
     const access_token = authorization.split(" ")[1];
-    console.log(access_token);
+
     const payload = verifyToken(access_token);
 
     const user = await User.findOne({
