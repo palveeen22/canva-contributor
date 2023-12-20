@@ -13,7 +13,7 @@ const Navbar = () => {
       <div className="flex justify-between">
         <h3 className="font-light text-[#595959]">Fainter</h3>
         <div className="flex">
-          <>
+          {/* <>
             <div className="flex -space-x-4 rtl:space-x-reverse">
               <img
                 className="w-10 h-10 border-2 border-white rounded-full dark:border-gray-800 object-cover"
@@ -26,8 +26,13 @@ const Navbar = () => {
                 alt=""
               />
             </div>
-          </>
-          <p onClick={handleLogout}>keluar</p>
+          </> */}
+          <button
+            onClick={handleLogout}
+            className="px-4 hover:rounded-xl bg-black text-white font-extralight text-xs rounded-full"
+          >
+            keluar
+          </button>
         </div>
       </div>
     </nav>
