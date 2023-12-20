@@ -7,13 +7,13 @@ const useOnDraw = () => {
   const canvaRef = useRef(null);
   const dispatch = useDispatch();
   const mousePressed = useRef(false);
-  var isDrawing = false;
+  let isDrawing = false;
   const MouseMoveListenerRef = useRef(null);
   const MouseDownListenerRef = useRef(null);
   const MouseUpListenerRef = useRef(null);
   const previousRef = useRef(null);
   const ctx = useRef(null);
-  var socket = io.connect("http://localhost:3001");
+  let socket = io.connect("http://localhost:3001");
 
   const StrokeColor = useSelector((state) => state.pencolor);
   const StrokeWidth = useSelector((state) => state.stroke);

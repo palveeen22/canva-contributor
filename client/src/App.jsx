@@ -1,16 +1,12 @@
-import "./App.css";
 import React from "react";
-import Store from "./store/store";
-import { Provider } from "react-redux";
-import MainPage from "./pages/MainPage";
+import { RouterProvider } from "react-router-dom";
+import router from "./router";
 
 function App() {
   return (
-    <Provider store={Store}>
-      <>
-        <MainPage />
-      </>
-    </Provider>
+    <>
+      <RouterProvider router={router} />
+    </>
   );
 }
 
