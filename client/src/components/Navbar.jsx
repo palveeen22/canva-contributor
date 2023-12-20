@@ -1,6 +1,13 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
+  const navigate = useNavigate();
+
+  const handleLogout = async () => {
+    localStorage.removeItem("access_token");
+    navigate("/login");
+  };
   return (
     <nav className="bg-[#d3d2cd] paddingXShorter paddingYShorter3">
       <div className="flex justify-between">
@@ -18,19 +25,9 @@ const Navbar = () => {
                 src="https://images.unsplash.com/photo-1702906221306-0cc041ad16d9?q=80&w=3387&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                 alt=""
               />
-              <img
-                className="w-10 h-10 border-2 border-white rounded-full dark:border-gray-800 object-cover"
-                src="https://images.unsplash.com/photo-1702906221306-0cc041ad16d9?q=80&w=3387&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                alt=""
-              />
-              <a
-                className="flex items-center justify-center w-10 h-10 text-xs font-medium text-white bg-gray-700 border-2 border-white rounded-full hover:bg-gray-600 dark:border-gray-800"
-                href="#"
-              >
-                +
-              </a>
             </div>
           </>
+          <p onClick={handleLogout}>keluar</p>
         </div>
       </div>
     </nav>

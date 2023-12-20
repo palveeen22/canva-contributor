@@ -1,35 +1,28 @@
 import { createBrowserRouter, redirect } from "react-router-dom";
 import MainPage from "./pages/MainPage";
-import Paint from "./pages/Paint";
-
-const url = "https://phase2-aio.vercel.app";
+import Paint from "./pages/Home/Paint";
+import Login from "./components/Login";
 
 const router = createBrowserRouter([
-  //   {
-  //     path: "/login",
-  //     element: <Login url={url} />,
-  //     loader: () => {
-  //       if (localStorage.access_token) {
-  //         Swal.fire({
-  //           title: "Ngapain cuk?????",
-  //           icon: "question",
-  //         });
-  //         return redirect("/");
-  //       }
-
-  //       return null;
-  //     },
-  //   },
   {
-    path: "/draw-together",
-    element: <Paint />,
+    path: "/login",
+    element: <Login />,
+  },
+  {
+    element: <MainPage />,
+    // loader: () => {
+    //   if (localStorage.access_token) {
+    //     return redirect("/login");
+    //   }
 
-    // children: [
-    //   {
-    //     path: "/",
-    //     element: <Home url={url} />,
-    //   },
-    // ],
+    //   return null;
+    // },
+    children: [
+      {
+        path: "/",
+        element: <Paint />,
+      },
+    ],
   },
 ]);
 export default router;

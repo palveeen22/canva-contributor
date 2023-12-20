@@ -1,6 +1,4 @@
 import React from "react";
-import Toolbox from "../components/userinputs";
-import Canvas from "../components/canva";
 import Navbar from "../components/Navbar";
 import { Outlet } from "react-router-dom";
 
