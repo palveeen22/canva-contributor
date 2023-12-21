@@ -1,9 +1,13 @@
 import { configureStore } from "@reduxjs/toolkit";
 
-import textboxSlice from "./textboxStore";
+import textboxSliceReducer from "./textboxStore";
 
 const Store = configureStore({
-  reducer: textboxSlice.reducer,
+  reducer: textboxSliceReducer,
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({
+      serializableCheck: false,
+    }),
 });
 
 export default Store;

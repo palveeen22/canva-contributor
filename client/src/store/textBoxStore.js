@@ -33,4 +33,4 @@ const textboxSlice = createSlice({
 });
 
 export const actions = textboxSlice.actions;
-export default textboxSlice;
+export default textboxSlice.reducer;
