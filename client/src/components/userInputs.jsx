@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { actions } from "../store/textboxStore";
+import { actions } from "../features/textbox-slice";
 import { Icon } from "@iconify/react";
 
 const Toolbox = () => {

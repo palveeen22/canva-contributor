@@ -1,6 +1,6 @@
 import { useRef, useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { actions } from "../store/textboxStore";
+import { actions } from "../features/textbox-slice";
 import io from "socket.io-client";
 
 const useOnDraw = () => {
