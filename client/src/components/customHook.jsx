@@ -73,13 +73,13 @@ const useOnDraw = () => {
   });
 
   // Event untuk menerima email yang dikirimkan dari server
-  socket.on("loggedInEmail", (data) => {
-    const email = data.email;
-    console.log("Email pengguna yang terautentikasi:", email);
+  // socket.on("loggedInEmail", (data) => {
+  //   const email = data.email;
+  //   console.log("Email pengguna yang terautentikasi:", email);
 
-    // Lakukan operasi lain dengan email
-    // ...
-  });
+  //   // Lakukan operasi lain dengan email
+  //   // ...
+  // });
 
   // Contoh penggunaan event "getEmail" untuk meminta email dari server
   socket.emit("getEmail");
