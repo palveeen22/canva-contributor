@@ -1,6 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit";
 
-import textboxSliceReducer from "./textboxStore";
+import textboxSliceReducer from "../features/textbox-slice";
 
 const Store = configureStore({
   reducer: textboxSliceReducer,
