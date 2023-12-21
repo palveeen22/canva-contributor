@@ -1,6 +1,6 @@
 import React from "react";
 import Canvas from "../../components/canva";
-import Toolbox from "../../components/userinputs";
+import Toolbox from "../../components/userInputs";
 
 const Paint = () => {
   return (
